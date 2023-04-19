@@ -1,0 +1,34 @@
+.MainHeader{
+    display: flex;
+    flex-direction: column;
+    background: #d4f0f5;
+    
+
+}
+.MainHeader-head{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: #199db2;
+    color: #fff;
+
+}
+.MainHeader-bottom{
+    height: 200px;
+    width: 100%;
+   
+}
+.duyurular{
+    background:#147e8e;
+    padding: 20px ;
+    padding-right: 50px;
+    clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
+    color: antiquewhite;
+    font-size: 18px;
+    font-weight: 600;
+}
+.duyurular-text{
+    width: 100%;
+    padding: 20px ;
+    
+}
