@@ -9,9 +9,9 @@ const Iletisim = () => {
     <div className='iletisim'>
       <div className='iletisim-text'>
         <p>
-        Soru veya görüşlerinizi Facebook , Twitter , Youtube , Telegram, Instagram adreslerimizden ,
+        Soru veya görüşlerinizi  <b>Facebook </b> , <b>Twitter</b>  , <b>Youtube</b> , <b>Telegram</b> , <b>Instagram</b>   adreslerimizden ,
         e-posta yoluyla ya da aşağıdaki form aracılığı ile bize ulaştırabilirsiniz.
-        E-Posta Adresimiz: bisak@boun.edu.tr
+        E-Posta Adresimiz : <b>tau@tau.edu.tr</b> 
         </p>
     
         <div className='social'>

@@ -3,7 +3,6 @@ import "./Footer.css"
 import { Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
-
 const Footer = () => {
   return (
     <div className='footer-div-main'>
@@ -17,11 +16,10 @@ const Footer = () => {
         <div className='footer-mid'>
           <div className='social'>
 
-            <a href='#'> <FaFacebook color='blue'/></a>
-            <a href='#'> <FaInstagram color='#f25' /></a>
-            <a href='#'> <FaYoutube color='red'/></a>
-            <a href='#'> <FaTwitter color='skyblue'/></a>
-
+            <Link to='youtube.com'> <FaFacebook color='blue'/></Link>
+            <Link href='#'> <FaInstagram color='#f25' /></Link>
+            <Link href='#'> <FaYoutube color='red'/></Link>
+            <Link href='#'> <FaTwitter color='skyblue'/></Link>
           </div>
           <div className='footer-search'>
             <Form className="d-flex">

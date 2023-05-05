@@ -20,9 +20,7 @@ function HeaderNavbar() {
             <Nav.Link as={Link} to="/biz-kimiz" >Biz Kimiz?</Nav.Link>
             <Nav.Link as={Link} to="/neler-yaptik">neler yaptik</Nav.Link>
             <Nav.Link as={Link} to="/iletisim">Iletisim</Nav.Link>
-
-            
-           
+            <Nav.Link as={Link} to="/control-panel/duyular-update">Control Panel</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -31,7 +29,7 @@ function HeaderNavbar() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-primary">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

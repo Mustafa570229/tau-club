@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 .bizkimiz{
     display: flex;
     justify-content: space-between;
@@ -7,14 +8,15 @@
     width: 70%;
     padding: 15px;
     margin-top: 30px;
-    background: #d4f0f5;
+    font-family:  cursive;
 }
 .text p{
-    font-size: 15px;
-    opacity: 0.6;
+    font-size: 18px;
+    color: gray;
 }
 .text img{
     width: 100%;
+    border-radius: 7px;
 }
 .details{
 width: 28%;
