@@ -1,0 +1,30 @@
+.neleryaptik{
+    display: flex;
+    justify-content: space-between;
+
+}
+.neleryaptik-text{
+    width: 70%;
+    padding: 15px;
+    margin-top: 30px;
+    background: #d4f0f5;
+}
+.neleryaptik-text ul{
+    display: flex;
+    flex-direction: column;
+    list-style-type: disc;
+}
+@media (max-width: 440px){
+    .neleryaptik{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }  
+    .neleryaptik-text{
+        width: 100%;
+        padding: 15px;
+        margin-top: 0px;
+        background: #d4f0f5;
+    }
+}

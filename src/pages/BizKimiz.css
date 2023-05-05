@@ -1,0 +1,50 @@
+.bizkimiz{
+    display: flex;
+    justify-content: space-between;
+}
+
+.text{
+    width: 70%;
+    padding: 15px;
+    margin-top: 30px;
+    background: #d4f0f5;
+}
+.text p{
+    font-size: 15px;
+    opacity: 0.6;
+}
+.text img{
+    width: 100%;
+}
+.details{
+width: 28%;
+margin-top: 30px;
+background: #d4f0f5;
+}
+.form-div{
+    padding: 10px;
+}
+.form-div-head{
+    font-size: 14px;
+    opacity: 0.6;
+    margin: 10px;
+}
+@media (max-width: 440px){
+    .bizkimiz{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }  
+    .text{
+        width: 100%;
+        padding: 15px;
+        margin-top: 0px;
+        background: #d4f0f5;
+    }
+    .details{
+        width: 100%;
+        margin-top: 0px;
+        background: #d4f0f5;
+        }
+}
