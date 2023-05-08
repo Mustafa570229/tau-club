@@ -1,8 +1,9 @@
 import React from 'react'
 import "./Footer.css"
-import { Button, Form } from 'react-bootstrap'
+// import { Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
+import SearchForm from '../search/SearchForm';
 const Footer = () => {
   return (
     <div className='footer-div-main'>
@@ -22,7 +23,7 @@ const Footer = () => {
             <Link href='#'> <FaTwitter color='skyblue'/></Link>
           </div>
           <div className='footer-search'>
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search"
@@ -30,7 +31,8 @@ const Footer = () => {
                 aria-label="Search"
               />
               <Button variant="outline-primary">Search</Button>
-            </Form>
+            </Form> */}
+            <SearchForm/>
           </div>
         </div>
 

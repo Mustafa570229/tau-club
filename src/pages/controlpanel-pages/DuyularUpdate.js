@@ -14,7 +14,6 @@ const DuyularUpdate = () => {
   const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState(false)
 
-
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'duyular'), (snapshot) => {
       setData(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));

@@ -50,6 +50,7 @@ const AuthProvider = ({ children }) => {
  const [news, setNews] = useState([]);
  const [imageSlider, setImageSlider] = useState([]);
  const [neleryaptik, setNeleryaptik] = useState([]);
+ const [searchTermApi, setSearchTermApi] = useState('');
 
 
 
@@ -71,7 +72,9 @@ const AuthProvider = ({ children }) => {
     imageSlider,
     setImageSlider,
     neleryaptik,
-    setNeleryaptik
+    setNeleryaptik,
+    searchTermApi,
+    setSearchTermApi
    }}
   >
    {!loading && children}

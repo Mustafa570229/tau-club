@@ -1,0 +1,40 @@
+.highlighted {
+    background: greenyellow;
+    box-shadow: 4px 4px 2px greenyellow ,
+    4px -4px 2px greenyellow ,
+    -4px 4px 2px greenyellow ,
+    -4px -4x 2px greenyellow;
+  }
+  .search-result{
+    margin: 20px;
+    padding: 20px;
+  }
+  .search-result h4 a ,.search-result h6 a{
+    text-decoration: none;
+  }
+  .search-result h4 a{
+    color: #222;
+  }
+  .search-result h6 a{
+    color: gray;
+  }
+  .search-result:hover  {
+    background: #d4f0f5;
+  }
+  h2 span{
+   color: greenyellow;
+  }
+  h2{
+   color: #147e8e;
+   margin-left: 5px;
+   padding: 5px;
+  }
+  @media (max-width:440px){
+    .search-result{
+      margin: 5px;
+      padding: 5px;
+    }
+    h2{
+      font-size: 18px;
+    }
+  }

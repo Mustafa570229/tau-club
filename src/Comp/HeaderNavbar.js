@@ -1,9 +1,10 @@
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import SearchForm from '../search/SearchForm';
 
 function HeaderNavbar() {
   return (
@@ -22,7 +23,8 @@ function HeaderNavbar() {
             <Nav.Link as={Link} to="/iletisim">Iletisim</Nav.Link>
             <Nav.Link as={Link} to="/control-panel/duyular-update">Control Panel</Nav.Link>
           </Nav>
-          <Form className="d-flex">
+
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -30,7 +32,9 @@ function HeaderNavbar() {
               aria-label="Search"
             />
             <Button variant="outline-primary">Search</Button>
-          </Form>
+          </Form> */}
+          <SearchForm/>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>

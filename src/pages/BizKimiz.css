@@ -1,52 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-.bizkimiz{
+
+.bizkimiz {
     display: flex;
     justify-content: space-between;
 }
 
-.text{
+.text {
     width: 70%;
     padding: 15px;
     margin-top: 30px;
-    font-family:  cursive;
+    font-family: cursive;
 }
-.text p{
+
+.text p {
     font-size: 18px;
     color: gray;
 }
-.text img{
+
+.text img {
     width: 100%;
     border-radius: 7px;
 }
-.details{
-width: 28%;
-margin-top: 30px;
-background: #d4f0f5;
+
+.details {
+    width: 28%;
+    margin-top: 30px;
+    background: #d4f0f5;
 }
-.form-div{
+
+.form-div {
     padding: 10px;
 }
-.form-div-head{
+
+.form-div-head {
     font-size: 14px;
     opacity: 0.6;
     margin: 10px;
 }
-@media (max-width: 440px){
-    .bizkimiz{
+
+@media (max-width: 440px) {
+    .bizkimiz {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-    }  
-    .text{
+    }
+
+    .text {
         width: 100%;
         padding: 15px;
         margin-top: 0px;
-        background: #d4f0f5;
+        font-family: Arial, Helvetica, sans-serif;
+
     }
-    .details{
+
+    .details {
         width: 100%;
         margin-top: 0px;
         background: #d4f0f5;
-        }
+    }
 }

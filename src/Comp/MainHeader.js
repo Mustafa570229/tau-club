@@ -7,13 +7,12 @@ const MainHeader = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([]);
 
-
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'duyular'), (snapshot) => {
       setData(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
     });
     return () => unsubscribe();
-  }, [data]);
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {

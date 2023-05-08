@@ -307,7 +307,6 @@
 
 .message-text {
  margin-top: 10px;
- font-family: cursive;
 }
 
 
@@ -318,6 +317,30 @@
 .name span {
  color: #555;
 
+}
+@media (max-width: 940px){
+    .message-container {
+        padding: 5px;
+       }
+       
+       .message {
+        margin: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.1), -1px -1px 1px rgb(0, 0, 0, 0.1);
+       
+       }
+       .name {
+        color: red;
+        font-size: 14px;
+        font-weight: 600;
+       }
+       
+       .email {
+        color: green;
+        font-size: 14px;
+        font-weight: 600;
+       }
 }
 
 /* neler yaptik */

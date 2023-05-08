@@ -22,9 +22,9 @@ const Loggingout = () => {
 
 
 
-      <div className="w-100 text-center mt-2">
+      <div className="w-100 text-center m-2">
       {error && <Alert variant="danger">{error}</Alert>}
-        <Button className="btn btn-primary" onClick={handleLogout}>
+        <Button className="btn btn-danger" onClick={handleLogout}>
           Log Out
         </Button>
       </div>

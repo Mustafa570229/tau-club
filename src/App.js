@@ -20,6 +20,7 @@ import NewsUpdate from './pages/controlpanel-pages/NewsUpdate';
 import NelerSingleElement from './pages/NelerSingleElement'
 import { collection, onSnapshot } from 'firebase/firestore'
 import { db } from "./firebase"
+import SearchResult from './search/SearchResult'
 
 const App = () => {
   const [neleryaptik, setNeleryaptik] = useState([]);
@@ -53,6 +54,8 @@ const App = () => {
               <Route path='news-updates' element={<NewsUpdate />} />
             </Route>
             <Route path='/login' element={<Login />} />
+            <Route path='/search-result/*' element={<SearchResult />} />
+
           </Routes>
         </AuthProvider>
         <Footer />
