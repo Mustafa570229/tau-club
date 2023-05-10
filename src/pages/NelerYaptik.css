@@ -7,8 +7,8 @@
     display: flex;
     flex-direction: column;
     width: 70%;
-    margin-top: 30px;
-    background: #fff;
+    margin-top: 10px;
+    background: var(--white);
 }
 
 .neleryaptik-text a {

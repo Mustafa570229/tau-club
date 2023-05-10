@@ -1,0 +1,22 @@
+.login-card {
+    background: var(--white);
+}
+
+.login-card form {
+    color: var(--dark)
+}
+
+.login-card button {
+    background: var(--btn-color);
+    color: var(--dark);
+    font-weight: 500;
+    
+    border: 1px solid #fff;
+}
+
+.login-card button:hover {
+    background: var(--btn-hover);
+    border: 1px solid #fff;
+
+
+}

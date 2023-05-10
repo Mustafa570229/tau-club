@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
+import { ref, getDownloadURL, deleteObject, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 as uuidv4 } from "uuid";
 import { db } from '../../firebase';
 import { collection, deleteDoc, doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore';
-import { Alert, Button, Form } from "react-bootstrap";
+import { Alert, Button, Form, ProgressBar } from "react-bootstrap";
 import { useAuth } from "../../context/ContextFirebase";
 import { FaCheckCircle } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
@@ -19,6 +19,8 @@ function NelerYaptikUpdate() {
   const [loading, setLoading] = useState(true)
   const [success, setSuccess] = useState(true)
   const [imageUploadVar, setImageUploadVar] = useState(true)
+  const [progress, setProgress] = useState(0)
+  const [progressVar, setProgressVar] = useState(true)
 
 
   const { neleryaptik, setNeleryaptik } = useAuth()
@@ -44,18 +46,47 @@ function NelerYaptikUpdate() {
   };
   const uploadFile = async () => {
     if (imageUpload.length === 0) return;
-    for (let i = 0; i < imageUpload.length; i++) {
-      const imageRef = ref(storage, `imagesNeleryaptik/${imageUpload[i].name}_${uuidv4()}`);
-      await uploadBytes(imageRef, imageUpload[i]).then((snapshot) => {
-        getDownloadURL(snapshot.ref).then((url) => {
-          setImageUrl((prevUrls) => [...prevUrls, url]);
-          setImagePreviewUrl([]);
-          setImageUploadVar(false)
-
-        });
+  
+    const promises = imageUpload.map((file) => {
+      return new Promise((resolve, reject) => {
+        const imageRef = ref(storage, `imagesNeleryaptik/${file.name}_${uuidv4()}`);
+        const uploadTask = uploadBytesResumable(imageRef, file);
+  
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            setProgress(progress);
+            setProgressVar(false);
+            if (progress === 100) {
+              setProgressVar(true);
+            }
+          },
+          (error) => {
+            console.error(error);
+            reject(error);
+          },
+          async () => {
+            const url = await getDownloadURL(uploadTask.snapshot.ref);
+            resolve(url);
+          }
+        );
       });
+    });
+  
+    try {
+      const urls = await Promise.all(promises);
+      setImageUrl(urls);
+      setImagePreviewUrl([]);
+      setImageUploadVar(false);
+      setProgress(0);
+    } catch (error) {
+      console.error(error);
     }
   };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(false)
@@ -111,7 +142,8 @@ function NelerYaptikUpdate() {
         <div className="image-uploaded">
           {!imageUpload && !loading && <Alert variant="danger">enter a Content</Alert>}
           {!loading && imageUrl.length === 0 && <Alert variant="danger">upload a image</Alert>}
-          {!imageUploadVar && <span>image uploaded <FaCheckCircle /></span>}</div>
+          {!progressVar && <ProgressBar now={progress} label={`${progress}%`} />}
+          {!imageUploadVar && <span>images uploaded <FaCheckCircle /></span>}</div>
         <label htmlFor="imgfile" className="choose-file">choose image <FaFileAlt /></label>
         <input type="file" multiple onChange={handleFileInputChange} id="imgfile" style={{ display: "none" }} />
 
@@ -153,9 +185,9 @@ function NelerYaptikUpdate() {
           <div key={index} className='content-panel'>
             <div className='content-img-panel-neler'>
               {item.url.map((url, i) => (
-                <>
-                  <img key={i} src={url} alt="..." />
-                </>
+                <div key={i}>
+                  <img  src={url} alt="..." />
+                </div>
               ))}
               <div>
               </div>

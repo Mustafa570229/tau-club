@@ -1,18 +1,29 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+
 const SearchForm = () => {
+  const mode = localStorage.getItem('mode');
   const [searchTerm, setSearchTerm] = useState('');
+  const [btnColor, setBtnColor] = useState('outline-primary');
+
+  useEffect(() => {
+    if (mode === 'dark') {
+      setBtnColor('outline-secondary');
+    } else {
+      setBtnColor('outline-primary');
+    }
+  }, [mode]);
 
   const navigate = useNavigate();
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchTerm) {
       navigate(`/search-result/${searchTerm}`);
-      setSearchTerm('')
+      setSearchTerm('');
     }
   };
+
   return (
     <Form className="d-flex" onSubmit={handleSearch}>
       <Form.Control
@@ -23,11 +34,11 @@ const SearchForm = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Button variant="outline-primary" type="submit">
+      <Button variant={btnColor} type="submit">
         Search
       </Button>
     </Form>
-  )
-}
+  );
+};
 
-export default SearchForm
+export default SearchForm;

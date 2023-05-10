@@ -4,12 +4,14 @@ justify-content: space-between;
 }
 .iletisim-text{
     padding: 20px;
-    width: 60%;
-    margin-top: 30px;
+    width: 70%;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: gray;
+background: var(--white);
+
 }
 @media (max-width: 990px){
     .iletisim{

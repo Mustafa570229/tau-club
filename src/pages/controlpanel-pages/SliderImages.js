@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
+import { ref, getDownloadURL, deleteObject, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 as uuidv4 } from "uuid";
 import { db } from '../../firebase';
 import { collection, deleteDoc, doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore';
-import { Alert, Button, Form } from "react-bootstrap";
+import { Alert, Button, Form, ProgressBar } from "react-bootstrap";
 import { useAuth } from "../../context/ContextFirebase";
 import { FaCheckCircle } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
@@ -21,17 +21,34 @@ function SliderImages() {
   const [success, setSuccess] = useState(true)
   const [imageUploadVar, setImageUploadVar] = useState(true)
   const { imageSlider, setImageSlider } = useAuth()
+  const [progress, setProgress] = useState(0)
+  const [progressVar, setProgressVar] = useState(true)
 
   const uploadFile = () => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `imageSlider/${imageUpload.name}_${uuidv4()}`);
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setImageUrl(url);
-        setImagePreviewUrl(null);
-        setImageUploadVar(false)
-      });
-    });
+    const uploadTask = uploadBytesResumable(imageRef, imageUpload);
+
+    uploadTask.on("state_changed",
+      (snapshot) => {
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        setProgress(progress)
+        setProgressVar(false)
+        if (progress === 100) {
+          setProgressVar(true)
+        }
+      },
+      (error) => {
+        console.error(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          setImageUrl(url);
+          setImagePreviewUrl(null);
+          setImageUploadVar(false)
+        });
+      }
+    );
   };
 
   const handleFileInputChange = (event) => {
@@ -72,11 +89,11 @@ function SliderImages() {
     const unsubscribe = onSnapshot(collection(db, 'image-slider'), (snapshot) => {
       setImageSlider(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
     });
-    
+
     return () => unsubscribe();
   }, [setImageSlider]);
 
-  const handleDelete = async (id,url) => {
+  const handleDelete = async (id, url) => {
     try {
       await deleteDoc(doc(db, 'image-slider', id));
       deleteObject(ref(storage, `imageSlider/${url.slice(81, -53)}`));
@@ -93,11 +110,14 @@ function SliderImages() {
 
         <div className="img-before-upload"> {imagePreviewUrl && <img
           src={imagePreviewUrl} alt="SelectedImage" />}</div>
-        <div className="image-uploaded">{!imageUploadVar && <span>image uploaded <FaCheckCircle /></span>}</div>
+        <div className="image-uploaded">
+
+          {!progressVar && <ProgressBar now={progress} label={`${progress}%`} />}
+          {!imageUploadVar && <span>image uploaded <FaCheckCircle /></span>}</div>
         <label htmlFor="imgfile" className="choose-file">choose image <FaFileAlt /></label>
         <input type="file" onChange={handleFileInputChange} id="imgfile" style={{ display: "none" }} />
 
-        <button className="upload-file-btn" onClick={uploadFile}>Upload image <FaCloudUploadAlt size={24}/></button>
+        <button className="upload-file-btn" onClick={uploadFile}>Upload image <FaCloudUploadAlt size={24} /></button>
 
         <Form onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicEmail'>
@@ -148,13 +168,13 @@ function SliderImages() {
                 <div className='content-title-panel'>{item.title}</div>
 
               </div>
-              <span><FaTrash color="red" onClick={() => handleDelete(item.id,item.url)} /></span>
+              <span><FaTrash color="red" onClick={() => handleDelete(item.id, item.url)} /></span>
             </div>
             <div className='content-content-panel'>
               <div className='content-desc-panel'>{item.content}</div>
               <div className='content-date-panel'>
-                  {item.createdAt?.toDate().toLocaleString()}
-                </div>
+                {item.createdAt?.toDate().toLocaleString()}
+              </div>
             </div>
           </div>
 

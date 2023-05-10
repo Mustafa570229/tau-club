@@ -2,6 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from "react";
 import { db } from "../firebase"
+import "./Slider.css"
 
 function Slider() {
   const [imageSlider, setImageSlider] = useState([])
@@ -21,8 +22,8 @@ function Slider() {
             alt={item.title}
           />
           <Carousel.Caption>
-            <h3>{item.title}</h3>
-            <p>{item.content}</p>
+            <h6 className='slider-title'>{item.title}</h6>
+            <p className='slider-p'>{item.content}</p>
           </Carousel.Caption>
         </Carousel.Item>
       ))}

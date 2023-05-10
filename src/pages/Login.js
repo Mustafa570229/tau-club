@@ -2,6 +2,7 @@ import { React, useRef, useState } from "react";
 import { useAuth } from "../context/ContextFirebase";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import "./Login.css"
 
 const Login = () => {
  const emailRef = useRef();
@@ -26,15 +27,15 @@ const Login = () => {
  }
 
  return (
-  <div className="mt-5 w-50 m-auto mb-5">
+  <div className="mt-5 w-50 m-auto mb-5 " >
    <Card>
-    <Card.Body>
+    <Card.Body className="login-card">
      <h2 className="text-center mb-4">Log In</h2>
      {error && <Alert variant="danger">{error}</Alert>}
      <Form onSubmit={handleSubmit}>
       <Form.Group>
        <Form.Label htmlFor="email">Email</Form.Label>
-       <Form.Control id="email" type="email" ref={emailRef} required />
+       <Form.Control id="email" type="email" placeholder=" Enter the your admin email" ref={emailRef} required />
       </Form.Group>
       <Form.Group>
        <Form.Label htmlFor="password">Password</Form.Label>
@@ -42,10 +43,11 @@ const Login = () => {
         id="password"
         type="password"
         ref={passwordRef}
+        placeholder=" Enter the password"
         required
        />
       </Form.Group>
-      <Button disabled={loading} className="w-100 mt-3 " type="submit" style={{ background: "#199db2" }}>
+      <Button disabled={loading} className="w-100 mt-3 " type="submit" >
        Log In
       </Button>
      </Form>

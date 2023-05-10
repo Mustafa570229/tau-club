@@ -1,0 +1,14 @@
+.slider-title{
+    font-size: 20px;
+}
+.slider-p{
+    font-size: 16px;
+}
+@media (max-width:500px){
+    .slider-title{
+        font-size: 12px;
+    }
+    .slider-p{
+        font-size: 10px;
+    }
+}

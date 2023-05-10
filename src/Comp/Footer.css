@@ -1,25 +1,38 @@
-.footer-div-main{
-background: #ebebec;
-margin-top: 20px;
-margin-bottom: 10px;
-box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+.footer-div-main {
+    background: var(--silber);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5),-1px -1px 1px rgba(0, 0, 0, 0.5);
 }
-.footer{
+
+.footer {
     display: flex;
     justify-content: space-between;
 }
-.footer-list{
+
+.footer-list {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
-    
-}
-.footer-list a{
-    text-decoration: none;
-    padding: 10px;
 
 }
-.footer-mid{
+
+.footer-list a {
+    text-decoration: none;
+    padding: 10px;
+    color: #333;
+    transition: 0.2s ease-in-out;
+    font-weight: 500;
+
+}
+.footer-list a:hover {
+   transform: scale(1.1);
+   color: #333;
+
+
+}
+
+.footer-mid {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -27,68 +40,73 @@ box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
     margin-right: 30px;
     width: 50%;
 }
-.footer-search{
+
+.footer-search {
     width: 100%;
 }
-.social{
+
+.social {
     width: 60%;
     display: flex;
     justify-content: space-between;
-
 }
-.social a{
+.social a {
     text-decoration: none;
     font-size: 40px;
-    
 }
-.copyright{
+.copyright {
     display: flex;
     justify-content: space-between;
-    background: #c5d3d5;
+    background: var(--silber-dark);
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 14px;
 }
-.copyright-copyright{
+.copyright-copyright {
     margin-right: 50px;
-    margin: 15px;
-
+    margin: 10px;
 }
-.programmed{
+.programmed {
     margin-left: 50px;
-    margin: 15px;
-
+    margin: 10px;
 }
-@media (max-width: 990px){
-    .footer{
+@media (max-width: 990px) {
+    .footer {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    .footer-div-main{
-        background: #ebebec;
+
+    .footer-div-main {
         margin-top: 0px;
         margin-bottom: 0px;
-        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
-        }
-    .footer-mid{
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .footer-mid {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-right: 30px;
+        margin-right: 10px;
         width: 100%;
-    } 
-    .footer-search{
+    }
+
+    .footer-search {
         width: 90%;
         margin-bottom: 20px;
 
     }
-    .social{
+
+    .social {
         width: 100%;
         display: flex;
         justify-content: space-around;
-    
+
     }
-    .social a{
-        font-size: 30px;
+
+    .social a {
+        font-size: 26px;
         margin-bottom: 20px;
-        
+
     }
 }

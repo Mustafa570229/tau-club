@@ -6,26 +6,28 @@
     -4px -4x 2px greenyellow;
   }
   .search-result{
-    margin: 20px;
+    margin-top: 10px;
     padding: 20px;
+    background: var(--white);
+    border-radius: 5px;
   }
   .search-result h4 a ,.search-result h6 a{
     text-decoration: none;
   }
   .search-result h4 a{
-    color: #222;
+    color: var(--dark);
   }
   .search-result h6 a{
-    color: gray;
+    color: var(--dark);
   }
   .search-result:hover  {
-    background: #d4f0f5;
+    background:var(--sky-light);
   }
   h2 span{
    color: greenyellow;
   }
   h2{
-   color: #147e8e;
+   color: var(--blue);
    margin-left: 5px;
    padding: 5px;
   }

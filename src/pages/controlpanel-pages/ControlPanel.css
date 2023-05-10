@@ -18,11 +18,11 @@
 
 .showing {
  width: 58%;
- background: #d4f0f5;
+ background: var(--sky-light);
 }
 
 .showing h4 {
- color: #777;
+ color: var(--dark);
  text-align: center;
  margin-top: 10px;
 }
@@ -33,7 +33,7 @@
  align-items: center;
  padding: 15px;
  border-top: 3px solid #f3f0f0;
- color: #555;
+ color: var(--dark);
  padding-left: 20px;
 }
 
@@ -57,11 +57,9 @@
 
  .showing {
   width: 100%;
-  background: #d4f0f5;
  }
 
  .showing h4 {
-  color: #777;
   text-align: center;
   margin-top: 10px;
  }
@@ -72,7 +70,6 @@
   align-items: center;
   padding: 15px;
   border-top: 3px solid #f3f0f0;
-  color: #555;
   padding-left: 20px;
  }
 
@@ -162,7 +159,7 @@
 }
 
 .content-title-panel {
- color: #222;
+ color: var(--dark);
  font-size: 18px;
  font-weight: 500;
 }
@@ -278,7 +275,7 @@
  margin: 30px;
  padding: 10px;
  border-radius: 5px;
- box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.1), -1px -1px 1px rgb(0, 0, 0, 0.1);
+ box-shadow: 1px 1px 1px var(--dark), -1px -1px 1px var(--dark);
 
 }
 
@@ -307,6 +304,7 @@
 
 .message-text {
  margin-top: 10px;
+ color: var(--dark);
 }
 
 
@@ -393,16 +391,16 @@
 }
 
 
-/*  */
+/* control panel navbar */
 .nav-link-custom {
- color: #000000;
+ color: var(--dark);
  font-weight: bold;
 }
 
 .nav-link-custom:hover,
 .nav-link-custom:focus,
 .nav-link-custom:active {
- color: #000000;
+ color: var(--dark);
  text-decoration: none;
 }
 

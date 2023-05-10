@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
+import { ref,  getDownloadURL, deleteObject, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 as uuidv4 } from "uuid";
 import { db } from '../../firebase';
 import { collection, deleteDoc, doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore';
-import { Alert, Button, Form } from "react-bootstrap";
+import { Alert, Button, Form, ProgressBar } from "react-bootstrap";
 import { useAuth } from "../../context/ContextFirebase";
 import { FaCheckCircle } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
@@ -21,18 +21,38 @@ function ImageCommentForm() {
   const [success, setSuccess] = useState(true)
   const [imageUploadVar, setImageUploadVar] = useState(true)
   const { news, setNews } = useAuth()
+  const [progress, setProgress] = useState(0)
+  const [progressVar, setProgressVar] = useState(true)
 
   const uploadFile = () => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name}_${uuidv4()}`);
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setImageUrl(url);
-        setImagePreviewUrl(null);
-        setImageUploadVar(false)
-      });
-    });
+    const uploadTask = uploadBytesResumable(imageRef, imageUpload);
+  
+    uploadTask.on("state_changed",
+      (snapshot) => {
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        setProgress(progress)
+        setProgressVar(false)
+        if (progress === 100) {
+          setProgressVar(true)
+        }
+      },
+      (error) => {
+        console.error(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          setImageUrl(url);
+          setImagePreviewUrl(null);
+          setImageUploadVar(false);
+          setProgress(0);
+        });
+      }
+    );
   };
+  
+
 
   const handleFileInputChange = (event) => {
     const file = event.target.files[0];
@@ -91,6 +111,7 @@ function ImageCommentForm() {
           src={imagePreviewUrl} alt="SelectedImage" />}</div>
         <div className="image-uploaded">
           {!loading && !imageUrl && <Alert variant="danger">upload a image</Alert>}
+          {!progressVar && <ProgressBar now={progress} label={`${progress}%`} />}
           {!imageUploadVar && <span>image uploaded <FaCheckCircle /></span>}</div>
         <label htmlFor="imgfile" className="choose-file">choose image <FaFileAlt /></label>
         <input type="file" onChange={handleFileInputChange} id="imgfile" style={{ display: "none" }} />

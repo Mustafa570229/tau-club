@@ -15,7 +15,6 @@ const NelerYaptik = () => {
     });
     return () => unsubscribe();
   }, []);
-
   return (
     <div className='neleryaptik'>
       <div className='neleryaptik-text'>

@@ -18,7 +18,7 @@ const SearchResult = () => {
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'neleryaptik'), (snapshot) => {
       const filteredDocs = snapshot.docs.filter(doc => {
-        const {  title, content } = doc.data();
+        const { title, content } = doc.data();
         return title.toLowerCase().includes(searchedItem) || content.toLowerCase().includes(searchedItem);
       }).map(doc => ({ id: doc.id, ...doc.data() }));
 
@@ -37,11 +37,11 @@ const SearchResult = () => {
     <div>
       <h2>Result Search : <span>{searchedItem}</span></h2>
       {searchResults.map(({ id, title, content }) => (
-         <div key={id} className='search-result'>
+        <div key={id} className='search-result'>
           <h4> <Link to={`/neler-yaptik/${id}`} dangerouslySetInnerHTML={{ __html: title }} /></h4>
           <h6><Link to={`/neler-yaptik/${id}`} dangerouslySetInnerHTML={{ __html: content }} /></h6>
-           
-         </div>
+
+        </div>
       ))}
     </div>
   );

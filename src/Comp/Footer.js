@@ -1,38 +1,35 @@
-import React from 'react'
 import "./Footer.css"
-// import { Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
 import SearchForm from '../search/SearchForm';
 const Footer = () => {
+  const scroll = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <div className='footer-div-main'>
       <div className='footer'>
         <div className='footer-list'>
-          <Link to="/">Home</Link>
-          <Link to="/biz-kimiz">Biz Kimiz</Link>
-          <Link to="/neler-yaptik">Neler Yaptik</Link>
-          <Link to="/iletisim">Iletisim</Link>
+          <Link onClick={scroll} to="/">Home</Link>
+          <Link onClick={scroll} to="/biz-kimiz">Biz Kimiz</Link>
+          <Link onClick={scroll} to="/neler-yaptik">Neler Yaptik</Link>
+          <Link onClick={scroll} to="/iletisim">Iletisim</Link>
         </div>
         <div className='footer-mid'>
           <div className='social'>
+            <a href='https://www.facebook.com' target="_blank" rel="noreferrer"><FaFacebook color='blue' /></a>
+            <a href='https://www.instagram.com' target="_blank" rel="noreferrer"><FaInstagram color='#f25' /></a>
+            <a href='https://www.youtube.com' target="_blank" rel="noreferrer"><FaYoutube color='red' /></a>
+            <a href='https://twitter.com' target="_blank" rel="noreferrer"><FaTwitter color='skyblue' /></a>
 
-            <Link to='youtube.com'> <FaFacebook color='blue'/></Link>
-            <Link href='#'> <FaInstagram color='#f25' /></Link>
-            <Link href='#'> <FaYoutube color='red'/></Link>
-            <Link href='#'> <FaTwitter color='skyblue'/></Link>
           </div>
           <div className='footer-search'>
-            {/* <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-primary">Search</Button>
-            </Form> */}
-            <SearchForm/>
+            <SearchForm />
           </div>
         </div>
 
@@ -41,8 +38,8 @@ const Footer = () => {
 
       </div>
       <div className='copyright'>
-        <div className='programmed'>Programmed by Mustafa</div>
-        <div className='copyright-copyright'>copyright</div>
+        <div className='programmed'>Designed Developed by Mustafa</div>
+        <div className='copyright-copyright'>copyright@2023</div>
 
       </div>
     </div>
