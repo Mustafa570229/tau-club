@@ -26,7 +26,6 @@ const Footer = () => {
             <a href='https://www.instagram.com' target="_blank" rel="noreferrer"><FaInstagram color='#f25' /></a>
             <a href='https://www.youtube.com' target="_blank" rel="noreferrer"><FaYoutube color='red' /></a>
             <a href='https://twitter.com' target="_blank" rel="noreferrer"><FaTwitter color='skyblue' /></a>
-
           </div>
           <div className='footer-search'>
             <SearchForm />
@@ -38,7 +37,7 @@ const Footer = () => {
 
       </div>
       <div className='copyright'>
-        <div className='programmed'>Designed Developed by Mustafa</div>
+        <div className='programmed'>Designed and Developed by Mustafa</div>
         <div className='copyright-copyright'>copyright@2023</div>
 
       </div>

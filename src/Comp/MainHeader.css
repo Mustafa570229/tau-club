@@ -1,84 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 :root {
-    --blue: #147e8e;
-    --sky: #199db2;
-    --sky-light: #d4f0f5;
-    --white: #fff;
-    --dark: #222;
-    --gray: gray;
-    --silber: #ebebec;
-    --silber-dark: #c5d3d5;
-    --btn-color:blue;
-    --btn-hover:#0d6efd;
+ --blue: #147e8e;
+ --sky: #199db2;
+ --sky-light: #d4f0f5;
+ --white: #fff;
+ --dark: #222;
+ --gray: gray;
+ --silber: #ebebec;
+ --silber-dark: #c5d3d5;
+ --btn-color: blue;
+ --btn-hover: #0d6efd;
+ --form-color: #d4f0f5;
 }
 
 .MainHeader {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--sky-light);
-    color: var(--text-color);
+ display: flex;
+ flex-direction: column;
+ background-color: var(--sky-light);
+ color: var(--text-color);
 }
 
 .MainHeader-head {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: var(--sky);
-    color: #fff;
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+ background-color: var(--sky);
+ color: #fff;
 }
 
 .MainHeader-head span {
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
+ padding: 10px;
+ cursor: pointer;
+ font-size: 24px;
 }
 
-.MainHeader-bottom {
-    /* height: 200px;
-    width: 100%; */
-}
+/* .MainHeader-bottom {
+    height: 200px;
+    width: 100%;
+} */
 .duyurular {
-    background: var(--blue);
-    padding: 20px;
-    padding-right: 50px;
-    clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
-    color: antiquewhite;
-    font-size: 18px;
-    font-weight: 600;
+ background: var(--blue);
+ padding: 20px;
+ padding-right: 50px;
+ clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
+ color: antiquewhite;
+ font-size: 18px;
+ font-weight: 600;
 }
 
 .duyurular-text {
-    width: 100%;
-    padding: 18px;
-    font-size: 18px;
-    color: #fff;
+ width: 100%;
+ padding: 18px;
+ font-size: 18px;
+ color: #fff;
 }
-@media (max-width:880px){
-    .duyurular {
-        background: var(--blue);
-        padding: 20px;
-        padding-right: 20px;
-        padding-left: 10px;
-        clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
-        color: antiquewhite;
-        font-size: 12px;
-        font-weight: 600;
-       
-    }
-    
-    .duyurular-text {
-        width: 100%;
-        padding: 0px;
-        font-size: 12px;
-        color: #fff;
-       
-    }
-    .MainHeader-head span {
-        padding: 0;
-        padding-right: 10px;
-        cursor: pointer;
-        font-size: 14px;
-    }
-    
+
+@media (max-width:880px) {
+ .duyurular {
+  background: var(--blue);
+  padding: 20px;
+  padding-right: 20px;
+  padding-left: 10px;
+  clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
+  color: antiquewhite;
+  font-size: 12px;
+  font-weight: 600;
+ }
+
+ .duyurular-text {
+  width: 100%;
+  padding: 0px;
+  font-size: 12px;
+  color: #fff;
+ }
+
+ .MainHeader-head span {
+  padding: 0;
+  padding-right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+ }
+
 }

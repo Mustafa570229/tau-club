@@ -3,7 +3,6 @@ import { useAuth } from "../context/ContextFirebase";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./Login.css"
-
 const Login = () => {
  const emailRef = useRef();
  const passwordRef = useRef();
@@ -13,7 +12,6 @@ const Login = () => {
  const navigate = useNavigate();
  async function handleSubmit(e) {
   e.preventDefault();
-
   try {
    setError("");
    setLoading(true);
@@ -22,12 +20,10 @@ const Login = () => {
   } catch {
    setError("Failed to log in");
   }
-
   setLoading(false);
  }
-
  return (
-  <div className="mt-5 w-50 m-auto mb-5 " >
+  <div className="mt-5   m-auto m-5 login" >
    <Card>
     <Card.Body className="login-card">
      <h2 className="text-center mb-4">Log In</h2>

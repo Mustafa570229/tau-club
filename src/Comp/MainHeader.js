@@ -29,7 +29,7 @@ const MainHeader = () => {
     const root = document.documentElement;
     if (mode === 'dark') {
       root.style.setProperty('--blue', '#222');
-      root.style.setProperty('--sky', '#666');
+      root.style.setProperty('--sky', '#333');
       root.style.setProperty('--sky-light', '#999');
       root.style.setProperty('--white', '#222');
       root.style.setProperty('--dark', '#fff');
@@ -38,6 +38,8 @@ const MainHeader = () => {
       root.style.setProperty('--btn-hover', '#333');
       root.style.setProperty('--silber-dark', '#222');
       root.style.setProperty('--btn-color', '#222');
+      root.style.setProperty('--form-color', '#222');
+
 
 
 
@@ -53,7 +55,7 @@ const MainHeader = () => {
       root.style.setProperty('--silber-dark', '#c5d3d5');
       root.style.setProperty('--btn-color', '#0b5ed7');
       root.style.setProperty('--btn-hover', '#0d6efd');
-
+      root.style.setProperty('--form-color', '#d4f0f5');
 
 
     }
@@ -62,10 +64,7 @@ const MainHeader = () => {
 
   function toggleMode() {
     setMode(mode === 'light' ? 'dark' : 'light');
-// window.location.reload();
-
   }
-
   return (
     <div className='MainHeader'>
       <div className='MainHeader-head'>

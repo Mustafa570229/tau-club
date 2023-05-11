@@ -1,9 +1,13 @@
+.login{
+    width: 50%;
+}
 .login-card {
     background: var(--white);
 }
 
 .login-card form {
     color: var(--dark)
+
 }
 
 .login-card button {
@@ -19,4 +23,11 @@
     border: 1px solid #fff;
 
 
+}
+@media (max-width:800px){
+  
+    .login{
+        width: 100%;
+    }
+    
 }

@@ -1,8 +1,8 @@
 .footer-div-main {
-    background: var(--silber);
+    background: var(--white);
     margin-top: 10px;
     margin-bottom: 10px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5),-1px -1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1),-2px -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .footer {
@@ -20,7 +20,7 @@
 .footer-list a {
     text-decoration: none;
     padding: 10px;
-    color: #333;
+    color: var(--dark);
     transition: 0.2s ease-in-out;
     font-weight: 500;
 
@@ -61,6 +61,7 @@
     color: var(--dark);
     font-weight: 600;
     font-size: 14px;
+    border-top: 1px solid #eff;
 }
 .copyright-copyright {
     margin-right: 50px;
@@ -76,6 +77,10 @@
         flex-direction: column;
         justify-content: space-between;
     }
+    .footer-list a:hover {
+        transform: scale(1);
+        color: #333;
+}
 
     .footer-div-main {
         margin-top: 0px;

@@ -1,28 +1,32 @@
-.iletisim{
-display: flex;
-justify-content: space-between;
+.iletisim {
+    display: flex;
+    justify-content: space-between;
 }
-.iletisim-text{
+
+.iletisim-text {
     padding: 20px;
     width: 70%;
-    margin-top: 10px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: gray;
-background: var(--white);
-
+    background: var(--white);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0,0.3) ,-1px -1px 2px rgba(0, 0, 0,0.3);
+    border-radius: 10px;
 }
-@media (max-width: 990px){
-    .iletisim{
+
+@media (max-width: 990px) {
+    .iletisim {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        }  
-        .iletisim-text{
-            width: 100%;
-            margin-top: 10px;
-            
-            align-items: center;
-        } 
+    }
+
+    .iletisim-text {
+        width: 100%;
+        margin-top: 10px;
+
+        align-items: center;
+    }
 }

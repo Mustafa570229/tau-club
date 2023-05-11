@@ -22,7 +22,7 @@ function HeaderNavbar() {
             <Nav.Link as={Link} to="/biz-kimiz" >Biz Kimiz?</Nav.Link>
             <Nav.Link as={Link} to="/neler-yaptik">neler yaptik</Nav.Link>
             <Nav.Link as={Link} to="/iletisim">Iletisim</Nav.Link>
-            <Nav.Link as={Link} to="/control-panel/duyular-update">Control Panel</Nav.Link>
+            <Nav.Link as={Link} to="/control-panel/duyular-update">Login</Nav.Link>
           </Nav>
           <SearchForm/>
         </Navbar.Collapse>
