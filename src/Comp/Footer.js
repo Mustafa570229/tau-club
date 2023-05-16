@@ -37,7 +37,9 @@ const Footer = () => {
 
       </div>
       <div className='copyright'>
-        <div className='programmed'>Designed and Developed by Mustafa</div>
+        <div className='programmed'>Developed by <a 
+        style={{textDecoration:"none"}} href="https://portfolio-6d607.web.app/" target="_blank" 
+        rel="noreferrer">Mustafa Alabohasne</a></div>
         <div className='copyright-copyright'>copyright@2023</div>
 
       </div>
